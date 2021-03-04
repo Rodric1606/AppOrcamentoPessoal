@@ -61,8 +61,17 @@ function cadastrarDespesa() {
     
     if(despesa.validarDados()){
         bd.gravar(despesa)
+        document.getElementById('modalTitulo').innerHTML = 'Registro gravado'
+        document.getElementById('modalTituloDiv').className = 'modal-header text-sucess'
+        document.getElementById('modalConteudo').innerHTML = 'Despesa foi registrada com sucesso!'
+        document.getElementById('modal_btn').className = 'btn btn-sucess'
+        $('#modalRegistraDespesa').modal('show')
     } else{
-
+        document.getElementById('modalTitulo').innerHTML = 'Registro com erro'
+        document.getElementById('modalTituloDiv').className = 'modal-header text-danger'
+        document.getElementById('modalConteudo').innerHTML = 'Erro na gravação do registro, é necessário preencher todos os campos'
+        document.getElementById('modal_btn').className = 'btn btn-danger'
+        $('#modalRegistraDespesa').modal('show')
     }
 }
 // Salvar o cadastro na instrução Local Storage
